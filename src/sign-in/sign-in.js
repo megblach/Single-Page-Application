@@ -5,7 +5,7 @@ export const signIn = () => {
   const form = $(`
         <form name="signIn" autocomplete="off" novalidate>
             <button type="button">Sign in</button>
-           <label id="p_id" class="text-danger">Button is in progress.</p>
+           <label id="p_id" class="text-danger">
         </form>
     `);
 
@@ -13,7 +13,7 @@ export const signIn = () => {
     event.preventDefault();
 
     // SOURCE: https://stackoverflow.com/a/13065407/2069114
-    form.find("#p_id").text("Butoon still in progress");
+    form.find("#p_id").text("Button still in progress");
 
     return form;
   });
