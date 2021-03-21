@@ -13,7 +13,7 @@ export const signIn = () => {
     event.preventDefault();
 
     // SOURCE: https://stackoverflow.com/a/13065407/2069114
-    form.find("#p_id").text("FOOOO")
+    form.find("#p_id").text("Butoon still in progress");
 
     return form;
   });
