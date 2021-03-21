@@ -5,15 +5,16 @@ export const signIn = () => {
   const form = $(`
         <form name="signIn" autocomplete="off" novalidate>
             <button type="button">Sign in</button>
-           <p id="p_id" class="text-danger">Button is in progress.</p>
+           <label id="p_id" class="text-danger">Button is in progress.</p>
         </form>
     `);
 
   form.find("button").on("click", (event) => {
     event.preventDefault();
-    const infoLabel = form.find("#p_id").val();
-    //console.log(infoLabel);
-    
+
+    // SOURCE: https://stackoverflow.com/a/13065407/2069114
+    form.find("#p_id").text("FOOOO")
+
     return form;
   });
 
