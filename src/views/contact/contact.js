@@ -1,4 +1,4 @@
-function validate(){
+export function validate(){
     let name = document.getElementById("name").value;
     let subject = document.getElementById("subject").value;
     let phone = document.getElementById("phone").value;

@@ -33,8 +33,7 @@ export const main = () => {
                 break;
 
             case 'contact':
-                    const contactId = deatil.contactId;
-                    mainElement.empty().append(contact(contactId));
+                    mainElement.empty().append(contact(contact));
                     break;
 
             default:
