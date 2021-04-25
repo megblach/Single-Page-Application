@@ -19,13 +19,19 @@ export const navigation = () => {
     const fragment = $(document.createDocumentFragment());
     const nav = $('<nav></nav>');
 
-    const homeButton = $('<button type="button">Home</button>');
+    const homeButton = $('<button type="button">Strona Główna</button>');
     homeButton.on('click', callback('home'));
     
-    const roomsButton = $('<button type="button">Rooms</button>');
+    const roomsButton = $('<button type="button">Pokoje</button>');
     roomsButton.on('click', callback('rooms'));
-    
-    nav.append(homeButton, roomsButton);
+
+    const signInButton = $('<button type="button">Zaloguj</button>');
+    signInButton.on('click', callback('signin'));
+
+    const signUpButton = $('<button type="button">Rejestracja</button>');
+    signUpButton.on('click', callback('signup'));
+
+    nav.append(homeButton, roomsButton, signInButton, signUpButton);
 
     fragment.append(nav);
 
