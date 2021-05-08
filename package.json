@@ -18,6 +18,10 @@
   "dependencies": {
     "axios": "^0.21.1",
     "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1"
+    "cd": "^0.3.3",
+    "common": "^0.2.5",
+    "header": "^0.1.1",
+    "jquery": "^3.4.1",
+    "src": "^1.1.2"
   }
 }

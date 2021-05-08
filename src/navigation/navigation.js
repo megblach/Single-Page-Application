@@ -1,7 +1,8 @@
 import $ from 'jquery';
+import { signin } from '../../src/views/signin/signin'
 
 // nasz callback to, tzw. higher-order function
-function callback(view) {
+export function callback(view) {
     return function (event) {
         event.preventDefault();
 
@@ -25,13 +26,14 @@ export const navigation = () => {
     const roomsButton = $('<button type="button">Pokoje</button>');
     roomsButton.on('click', callback('rooms'));
 
-    const signInButton = $('<button type="button">Zaloguj</button>');
+    const signInButton = $('<button type="button">Logowanie</button>');
     signInButton.on('click', callback('signin'));
 
     const signUpButton = $('<button type="button">Rejestracja</button>');
     signUpButton.on('click', callback('signup'));
 
     nav.append(homeButton, roomsButton, signInButton, signUpButton);
+
 
     fragment.append(nav);
 

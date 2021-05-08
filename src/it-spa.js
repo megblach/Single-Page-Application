@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.css";
 import $ from "jquery";
-import { header, main, footer } from "./common/";
+import { header, main, footer} from "./common/";
 import { navigation } from "./navigation/navigation";
 // import { signUp } from "./sign-up/sign-up";
 // import { signIn } from "./sign-in/sign-in";
