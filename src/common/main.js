@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { home, rooms, roomsDetail, contact } from '../views';
+import { home, rooms, roomsDetail, contact, aboutus } from '../views';
 
 // const viewMap = new Map([
 //     ['home', home],
@@ -35,6 +35,10 @@ export const main = () => {
             case 'contact':
                     mainElement.empty().append(contact(contact));
                     break;
+
+            case 'aboutus':
+                        mainElement.empty().append(aboutus(contact));
+                        break;
 
             default:
                 const oops = $('<h2>Oops, coś poszło nie tak!</h2>');

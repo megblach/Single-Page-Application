@@ -1,10 +1,12 @@
+import $ from 'jquery';
+
 export function validate(){
-    let name = document.getElementById("name").value;
-    let subject = document.getElementById("subject").value;
-    let phone = document.getElementById("phone").value;
-    let email = document.getElementById("email").value;
-    let message = document.getElementById("message").value;
-    let error_message = document.getElementById("error_message");
+    let name = $(document.getElementById("name").value);
+    let subject = $(document.getElementById("subject").value);
+    let phone = $(document.getElementById("phone").value);
+    let email = $(document.getElementById("email").value);
+    let message = $(document.getElementById("message").value);
+    let error_message = $(document.getElementById("error_message"));
     
     error_message.style.padding = "10px";
     
