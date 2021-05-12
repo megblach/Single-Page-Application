@@ -1,7 +1,8 @@
 import $ from 'jquery';
+import { signin } from '../../src/views/signin/signin'
 
 // nasz callback to, tzw. higher-order function
-function callback(view) {
+export function callback(view) {
     return function (event) {
         event.preventDefault();
 
