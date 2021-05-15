@@ -58,13 +58,13 @@ export const main = () => {
             case "treatment":
                 emptiedMain.append(treatment());
                 break;
-=======
+
             case 'signin':
-                mainElement.empty().append(signin())
+                mainElement.empty().append(signin());
                 break;
 
             case 'signup':
-                mainElement.empty().append(signup())
+                mainElement.empty().append(signup());
                 break;
         
 
