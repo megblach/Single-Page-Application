@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import axios from 'axios';
+import {addToShoppingCartWidget} from '../booking/booking';
 
 export const treatments = () => {
     const fragment = $(document.createDocumentFragment());
@@ -41,6 +42,7 @@ export const treatments = () => {
                 `);
 
                 article.prepend(h4);// DOCZEPIAMY `h4` SPOWROTEM DO `article`
+                article.append(addToShoppingCartWidget(id));
 
                 return article;
             });
