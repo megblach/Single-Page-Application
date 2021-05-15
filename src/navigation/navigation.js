@@ -38,7 +38,7 @@ export const navigation = () => {
     nav.append(homeButton, roomsButton, signInButton, signUpButton);
 
     const treatmentButton = $('<button type="button">Zabiegi</button>');
-    treatmentButton.on('click', callback('treatment'));
+    treatmentButton.on('click', callback('treatments'));
 
     const aboutButton = $('<button type="button">O nas</button>');
     aboutButton.on('click', callback('about'));

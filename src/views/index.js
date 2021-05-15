@@ -4,5 +4,6 @@ export * from './rooms/rooms-detail';
 export * from './signin/signin';
 export * from './signup/signup';
 export * from './contact/contact';
+export * from './treatments/treatments';
 
 

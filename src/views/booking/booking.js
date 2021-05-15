@@ -6,6 +6,13 @@ let shoppingCart = [
   { itemId: 4, quantity: 2 },
 ];
 
+export const addToShoppingCartWidget = (itemId) => {
+  const button= $(`<button type="button">Dodaj</button>`)
+    .on('click', ()=>{
+      shoppingCart.push({ itemId, quantity: 1 })
+    })
+  return button
+}
 export const shoppingCartView = () => {
   //return "Helloworld";
   const shoppingCartContent = (table,treatments) => {
