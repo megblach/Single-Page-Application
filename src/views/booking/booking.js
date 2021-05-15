@@ -9,7 +9,13 @@ let shoppingCart = [
 export const addToShoppingCartWidget = (itemId) => {
   const button= $(`<button type="button">Dodaj</button>`)
     .on('click', ()=>{
-      shoppingCart.push({ itemId, quantity: 1 })
+      const item=shoppingCart.find((i)=>i.itemId==itemId)
+      if  (item)  {
+        item.quantity++;
+      }
+      else  {
+        shoppingCart.push({ itemId, quantity: 1 })
+      }
     })
   return button
 }
@@ -36,7 +42,7 @@ export const shoppingCartView = () => {
     table.find('input').on('change', (event)=>{
       const itemId=$(event.target).parent().parent().data("id")
       const item=shoppingCart.find((i)=>i.itemId==itemId)
-      item.quantity=parseInt(event.target.value)
+      item.quantity=Math.max(1,parseInt(event.target.value))
       shoppingCartContent(table,treatments)
       console.log(shoppingCart)
 
