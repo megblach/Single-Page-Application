@@ -1,5 +1,12 @@
-import $ from 'jquery';
-import { home, rooms, roomsDetail, contact, aboutus } from '../views';
+import $ from "jquery";
+import {
+    home,
+    rooms,
+    roomsDetail,
+    contact,
+    aboutus,
+    treatment,
+} from "../views";
 
 // const viewMap = new Map([
 //     ['home', home],
@@ -9,40 +16,47 @@ import { home, rooms, roomsDetail, contact, aboutus } from '../views';
 
 // viewMap.get('home') // -> zwraca fn home
 // viewMap.get('xyz123') // -> zwraca undefined
-
 export const main = () => {
-    const mainElement = $('<main></main>');
-    mainElement.append(home());// NA START POKAZUJEMY CHOCIAZ WIDOK `HOME`
+    const mainElement = $("<main></main>");
+    mainElement.append(home()); // NA START POKAZUJEMY CHOCIAZ WIDOK `HOME`
 
-    document.addEventListener('navigation', event => {
+    document.addEventListener("navigation", (event) => {
         // const { detail } = event; <-- DESTRUKTURYZACJA OBIEKTU
-        const detail = event.detail; // NP. { view: 'home' } LUB { view: 'rooms' }
+        const {
+            detail: { view, roomId },
+        } = event;
 
-        switch (detail.view) {
-            case 'home':
-                mainElement.empty().append(home());
+        // nie trzeba powtarzac tej samej funkcji za kazdym razem
+        const emptiedMain = mainElement.empty();
+
+        switch (view) {
+            case "home":
+                emptiedMain.append(home());
                 break;
 
-            case 'rooms':
-                mainElement.empty().append(rooms());
+            case "rooms":
+                emptiedMain.append(rooms());
                 break;
 
-            case 'rooms-detail':
-                const roomId = detail.roomId;
-                mainElement.empty().append(roomsDetail(roomId));
+            case "rooms-detail":
+                emptiedMain.append(roomsDetail(roomId));
                 break;
 
-            case 'contact':
-                    mainElement.empty().append(contact(contact));
-                    break;
+            case "contact":
+                emptiedMain.html(contact());
+                break;
 
-            case 'aboutus':
-                        mainElement.empty().append(aboutus(contact));
-                        break;
+            case "aboutus":
+                emptiedMain.html(aboutus());
+                break;
+
+            case "treatment":
+                emptiedMain.append(treatment());
+                break;
 
             default:
-                const oops = $('<h2>Oops, coś poszło nie tak!</h2>');
-                mainElement.empty().append(oops);
+                const oops = $("<h2>Oops, coś poszło nie tak!</h2>");
+                emptiedMain.append(oops);
         }
     });
 
