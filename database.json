@@ -1,14 +1,39 @@
 {
   "users": [
     {
-      "l": "Gosia",
-      "p": "aghfjgjshfga",
+      "l": "gosia@onet.pl",
+      "p": "qwerty123",
       "id": 1
     },
     {
-      "l": "Gosia",
-      "p": "asdfghjk",
+      "l": "dawid@onet.pl",
+      "p": "asdf678",
       "id": 2
+    },
+    {
+      "l": "zaneta@onet.pl",
+      "p": "zxcv4567",
+      "id": 3
+    },
+    {
+      "l": "agata@onet.pl",
+      "p": "abcdef0123",
+      "id": 4
+    },
+    {
+      "l": "admin@onet.pl",
+      "p": "admin123",
+      "id": 5
+    },
+    {
+      "l": "user@onet.pl",
+      "p": "user123",
+      "id": 6
+    },
+    {
+      "l": "wszedziezuber@gmail.com",
+      "p": "alk",
+      "id": 7
     }
   ],
   "rooms": [

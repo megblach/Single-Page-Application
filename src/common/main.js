@@ -1,3 +1,4 @@
+
 import $ from "jquery";
 import {
     home,
@@ -6,7 +7,10 @@ import {
     contact,
     aboutus,
     treatment,
+    signin,
+    signup
 } from "../views";
+
 
 // const viewMap = new Map([
 //     ['home', home],
@@ -46,6 +50,7 @@ export const main = () => {
                 emptiedMain.html(contact());
                 break;
 
+
             case "aboutus":
                 emptiedMain.html(aboutus());
                 break;
@@ -53,6 +58,22 @@ export const main = () => {
             case "treatment":
                 emptiedMain.append(treatment());
                 break;
+=======
+            case 'signin':
+                mainElement.empty().append(signin())
+                break;
+
+            case 'signup':
+                mainElement.empty().append(signup())
+                break;
+        
+
+            case 'contact':
+                    const contactId = deatil.contactId;
+                    mainElement.empty().append(contact(contactId));
+                    break;
+
+
 
             default:
                 const oops = $("<h2>Oops, coś poszło nie tak!</h2>");
