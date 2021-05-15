@@ -1,15 +1,6 @@
+import $ from 'jquery';
 
-import $ from "jquery";
-import {
-    home,
-    rooms,
-    roomsDetail,
-    contact,
-    aboutus,
-    treatment,
-    signin,
-    signup
-} from "../views";
+import { home, rooms, roomsDetail, signin, signup,contact } from '../views';
 
 
 // const viewMap = new Map([
@@ -20,45 +11,29 @@ import {
 
 // viewMap.get('home') // -> zwraca fn home
 // viewMap.get('xyz123') // -> zwraca undefined
+
 export const main = () => {
-    const mainElement = $("<main></main>");
-    mainElement.append(home()); // NA START POKAZUJEMY CHOCIAZ WIDOK `HOME`
+    const mainElement = $('<main></main>');
+    mainElement.append(home());// NA START POKAZUJEMY CHOCIAZ WIDOK `HOME`
 
-    document.addEventListener("navigation", (event) => {
+    document.addEventListener('navigation', event => {
         // const { detail } = event; <-- DESTRUKTURYZACJA OBIEKTU
-        const {
-            detail: { view, roomId },
-        } = event;
+        const detail = event.detail; // NP. { view: 'home' } LUB { view: 'rooms' }
 
-        // nie trzeba powtarzac tej samej funkcji za kazdym razem
-        const emptiedMain = mainElement.empty();
-
-        switch (view) {
-            case "home":
-                emptiedMain.append(home());
+        switch (detail.view) {
+            case 'home':
+                mainElement.empty().append(home());
                 break;
 
-            case "rooms":
-                emptiedMain.append(rooms());
+            case 'rooms':
+                mainElement.empty().append(rooms());
                 break;
 
-            case "rooms-detail":
-                emptiedMain.append(roomsDetail(roomId));
+            case 'rooms-detail':
+                const roomId = detail.roomId;
+                mainElement.empty().append(roomsDetail(roomId));
                 break;
 
-            case "contact":
-                emptiedMain.html(contact());
-                break;
-
-
-            case "aboutus":
-                emptiedMain.html(aboutus());
-                break;
-
-            case "treatment":
-                emptiedMain.append(treatment());
-                break;
-=======
             case 'signin':
                 mainElement.empty().append(signin())
                 break;
@@ -74,10 +49,9 @@ export const main = () => {
                     break;
 
 
-
             default:
-                const oops = $("<h2>Oops, coś poszło nie tak!</h2>");
-                emptiedMain.append(oops);
+                const oops = $('<h2>Oops, coś poszło nie tak!</h2>');
+                mainElement.empty().append(oops);
         }
     });
 

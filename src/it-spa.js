@@ -14,5 +14,3 @@ body.append(header());
 body.append(navigation());
 body.append(main());
 body.append(footer());
-
-
