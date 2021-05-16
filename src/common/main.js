@@ -41,18 +41,32 @@ export const main = () => {
         mainElement.empty().append(roomsDetail(roomId));
         break;
 
-      case "signin":
-        mainElement.empty().append(signin());
-        break;
+            case "contact":
+                emptiedMain.html(contact());
+                break;
 
-      case "signup":
-        mainElement.empty().append(signup());
-        break;
 
-      case "contact":
-        const contactId = deatil.contactId;
-        mainElement.empty().append(contact(contactId));
-        break;
+            case "aboutus":
+                emptiedMain.html(aboutus());
+                break;
+
+            case "treatment":
+                emptiedMain.append(treatment());
+                break;
+
+            case 'signin':
+                mainElement.empty().append(signin());
+                break;
+
+            case 'signup':
+                mainElement.empty().append(signup());
+                break;
+        
+
+            case 'contact':
+                    const contactId = deatil.contactId;
+                    mainElement.empty().append(contact(contactId));
+                    break;
 
       case "treatments":
         mainElement.empty().append(treatments());
