@@ -8,6 +8,7 @@ import {
   signup,
   contact,
   treatments,
+  aboutus
 } from "../views";
 
 // const viewMap = new Map([
@@ -18,28 +19,31 @@ import {
 
 // viewMap.get('home') // -> zwraca fn home
 // viewMap.get('xyz123') // -> zwraca undefined
-
 export const main = () => {
-  const mainElement = $("<main></main>");
-  mainElement.append(home()); // NA START POKAZUJEMY CHOCIAZ WIDOK `HOME`
+    const mainElement = $("<main></main>");
+    mainElement.append(home()); // NA START POKAZUJEMY CHOCIAZ WIDOK `HOME`
 
-  document.addEventListener("navigation", (event) => {
-    // const { detail } = event; <-- DESTRUKTURYZACJA OBIEKTU
-    const detail = event.detail; // NP. { view: 'home' } LUB { view: 'rooms' }
+    document.addEventListener("navigation", (event) => {
+        // const { detail } = event; <-- DESTRUKTURYZACJA OBIEKTU
+        const {
+            detail: { view, roomId },
+        } = event;
 
-    switch (detail.view) {
-      case "home":
-        mainElement.empty().append(home());
-        break;
+        // nie trzeba powtarzac tej samej funkcji za kazdym razem
+        const emptiedMain = mainElement.empty();
 
-      case "rooms":
-        mainElement.empty().append(rooms());
-        break;
+        switch (view) {
+            case "home":
+                emptiedMain.append(home());
+                break;
 
-      case "rooms-detail":
-        const roomId = detail.roomId;
-        mainElement.empty().append(roomsDetail(roomId));
-        break;
+            case "rooms":
+                emptiedMain.append(rooms());
+                break;
+
+            case "rooms-detail":
+                emptiedMain.append(roomsDetail(roomId));
+                break;
 
             case "contact":
                 emptiedMain.html(contact());
@@ -72,11 +76,12 @@ export const main = () => {
         mainElement.empty().append(treatments());
         break;
 
-      default:
-        const oops = $("<h2>Oops, coś poszło nie tak!</h2>");
-        mainElement.empty().append(oops);
-    }
-  });
 
-  return mainElement;
+            default:
+                const oops = $("<h2>Oops, coś poszło nie tak!</h2>");
+                emptiedMain.append(oops);
+        }
+    });
+
+    return mainElement;
 };
