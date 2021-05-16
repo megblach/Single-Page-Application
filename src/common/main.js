@@ -8,7 +8,9 @@ import {
   signup,
   contact,
   treatments,
-  aboutus
+  aboutus,
+  shoppingCart
+
 } from "../views";
 
 // const viewMap = new Map([
@@ -75,6 +77,10 @@ export const main = () => {
       case "treatments":
         mainElement.empty().append(treatments());
         break;
+
+        case 'shoppingcart':
+          mainElement.empty().append(shoppingCart());
+          break;
 
 
             default:

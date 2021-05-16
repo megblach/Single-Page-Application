@@ -6,5 +6,6 @@ export * from './signup/signup';
 export * from './contact/contact';
 export * from './aboutus/aboutus';
 export * from './treatments/treatments';
+export * from './shoppingcart/shoppingcart';
 
 
