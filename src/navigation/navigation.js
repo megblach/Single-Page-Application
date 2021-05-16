@@ -3,6 +3,7 @@ import $ from "jquery";
 import { signin } from '../../src/views/signin/signin'
 
 
+
 // nasz callback to, tzw. higher-order function
 export function callback(view) {
     return function (event) {
@@ -48,12 +49,16 @@ export const navigation = () => {
     const contactButton = $('<button type="button">Kontakt</button>');
     contactButton.on("click", callback("contact"));
 
+    const shoppingCartButton = $('<button type="button">Koszyk</button>');
+    shoppingCartButton.on("click", callback("shoppingcart"));
+
     nav.append(
         homeButton,
         roomsButton,
         treatmentButton,
         aboutButton,
-        contactButton
+        contactButton,
+        shoppingCartButton
     );
 
     fragment.append(nav);
