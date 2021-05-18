@@ -1,13 +1,17 @@
 import $ from 'jquery';
 import axios from 'axios';
 
+
+
+
+
 let shoppingCart = [
   { itemId: 2, quantity: 1 },
-  { itemId: 4, quantity: 2 },
+  { itemId: 4, quantity: 1 },
 ];
 
 export const addToShoppingCartWidget = (itemId) => {
-  const button= $(`<button type="button">Dodaj</button>`)
+  const button= $(`<button type="button" class="btn btn-success">+</button>`)
     .on('click', ()=>{
       const item=shoppingCart.find((i)=>i.itemId==itemId)
       if  (item)  {
@@ -20,16 +24,15 @@ export const addToShoppingCartWidget = (itemId) => {
   return button
 }
 export const shoppingCartView = () => {
-  //return "Helloworld";
   const shoppingCartContent = (table,treatments) => {
       const rows= shoppingCart.map((item)=>$(`
       <tr data-id="${item.itemId}">
       <td>${treatments.filter(treatment => treatment.id == item.itemId)[0].name}</td>
       <td><input value="${item.quantity}" type="number" min="0"></td>
       <td>${treatments.filter(treatment => treatment.id == item.itemId)[0].price*item.quantity}</td>
-      <td><button type="button">Usuń produkt</button>
+      <td><button type="button" class="btn btn-outline-danger"> <i class="bi bi-trash"></i> Usuń Zabieg </button>
+      </tr>`))
       
-    </tr>`))
     const summary=$(`
     <tr>
       <th></th>

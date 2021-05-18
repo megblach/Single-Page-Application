@@ -11,11 +11,12 @@ export const signup = () => {
 
 
     const registerForm = $(`
+    <div class="form-group">
     <div class="regForm">
         <form name="fetch">
-            <input type="email" id="email" name="l" placeholder="Email" required>
-            <input type="password" id="password" name="p" placeholder="Hasło" required>
-            <input type="password" id="confirmPassword" placeholder="Powtórz Hasło" required>
+            <input type="email" id="email" name="l" class="form-control" placeholder="Email" required> </br>
+            <input type="password" id="password" name="p" class="form-control" placeholder="Hasło" required></br>
+            <input type="password" id="confirmPassword" class="form-control" placeholder="Powtórz Hasło" required></br>
             <div id="register-completed" class="alert alert-success" role="alert">Dziękujemy za Rejestrację w IT SPA!</div>
             <div id="email-taken" class="alert alert-danger" role="alert">Podany adres Email jest zajęty</div>
             <div id="password-wrong" class="alert alert-danger" role="alert">Hasła muszą być takie same</div>
@@ -26,6 +27,8 @@ export const signup = () => {
             <button type="submit" class="btn btn-info">Załóż Konto</button>
         </form>
     </div>
+    </div>
+
     `);
 
     const formMessages = {

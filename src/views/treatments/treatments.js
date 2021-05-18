@@ -4,7 +4,7 @@ import {addToShoppingCartWidget} from '../booking/booking';
 
 export const treatments = () => {
     const fragment = $(document.createDocumentFragment());
-    const h2 = $('<h2>Treatments</h2>');
+    const h2 = $('<h2>Zabiegi</h2>');
     const section = $(`
         <section>
             Loading...
@@ -36,7 +36,7 @@ export const treatments = () => {
                 
                 const article = $(`
                     <article>
-                        <p><strong>Area</strong> ${area} | <strong>Time</strong> ${time}</p>
+                        <p><strong>Część Ciała</strong> ${area} <br/> <strong>Czas Trwania</strong> ${time}</p>
                         <p><strong>${price.toFixed(2)} zł</strong></p>
                     </article>
                 `);
