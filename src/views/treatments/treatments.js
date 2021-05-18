@@ -42,7 +42,7 @@ export const treatments = () => {
                 `);
 
                 article.prepend(h4);// DOCZEPIAMY `h4` SPOWROTEM DO `article`
-                article.append(addToShoppingCartWidget(id));
+                article.append(addToShoppingCartWidget(id,'treatment'));
 
                 return article;
             });
