@@ -1,0 +1,18 @@
+.component div:last-child {
+    margin-left: auto;
+    display: inline-flex;
+
+}
+
+.loggedComponent {
+    display: inline-flex !important
+}
+
+
+.logOutButton {
+    margin-left: 20px;
+}
+
+.logged {
+    color: white !important;
+}
