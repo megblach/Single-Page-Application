@@ -1,5 +1,5 @@
 import $ from "jquery";
-import './navbar.css'
+import './navbar.css';
 // import {logOut, loggedUserComponent} from '../common/header'
 
 
