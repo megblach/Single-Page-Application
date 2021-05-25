@@ -1,5 +1,6 @@
 import $ from "jquery";
 import './navbar.css';
+
 // import {logOut, loggedUserComponent} from '../common/header'
 
 
@@ -22,22 +23,22 @@ export function callback(view) {
 
 export const loggedUserComponent = $(`
 <form id="logOut" class="loggedComponent">
-<p id="displayLogin" class="text-white" class="loginText"></p>
+<p id="displayLogin" class="text-white loginText"></p>
 </form>
 `);
 
-export const logOutButton = $('<button type="button" id="logOutButton" class="btn btn-danger logOutButton">Wyloguj</button>')
+export const logOutButton = $('<button type="button" id="logOutButton" class="btn btn-danger logOutButton btn-sm">Wyloguj</button>')
 
 
 
 
 export const navigationbar = () => {
     const fragment = $(document.createDocumentFragment());
-    const navbar = $('<nav class="navbar navbar-expand-lg navbar-dark bg-dark component"></nav>');
+    const navbar = $('<nav class="navbar navbar-expand-lg navbar-custom bg-dark component" className="navbarCustom"></nav>');
     const loggedComponent = $('<div class="logComp"></div>')
 
     
-    const brandButton = $('<a class="navbar-brand" href="#">IT SPA</a>')
+    const brandButton = $('<a class="navbar-brand">IT SPA</a>')
     brandButton.on("click", callback("home"));
 
     const aboutButton = $('<a class="nav-link text-light">O nas</a>')
@@ -67,7 +68,7 @@ export const navigationbar = () => {
     const logOut = () => {
         loggedUserComponent.hide();
         logOutButton.hide();
-        window.location.reload(false);
+        window.location.reload(true);
         
     }
     logOutButton.hide();  

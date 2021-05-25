@@ -1,7 +1,7 @@
 export const carousel = () => {
 
     let activeElement = 0;
-    const timeChange = 4000;
+    const timeChange = 5000;
     const colorImgHtml = document.querySelector('.color');
     const greyImagesHtml = document.querySelector('.grey');
     const colorImgHtml2 = document.querySelector('.color-2');

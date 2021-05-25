@@ -3,9 +3,9 @@ import axios from 'axios';
 
 export const rooms = () => {
     const fragment = $(document.createDocumentFragment());
-    const h2 = $('<h2>Rooms</h2>');
+    const h2 = $('<h2>Dostępne pokoje</h2>');
     const section = $(`
-        <section>
+        <section class="rooms-container">
             Loading...
         </section>
     `);
@@ -34,13 +34,16 @@ export const rooms = () => {
                 });
                 
                 const article = $(`
+                    <div class="article-room container-fluid">
                     <article>
                         <p><strong>Beds</strong> ${beds} | <strong>Guests</strong> ${guests}</p>
                         <p><strong>${price.toFixed(2)} zł</strong></p>
                     </article>
+                    </div>
                 `);
 
-                article.prepend(h4);// DOCZEPIAMY `h4` SPOWROTEM DO `article`
+                article.prepend(h4); //doczepiamy z powrotem do article
+
 
                 return article;
             });

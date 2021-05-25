@@ -1,5 +1,7 @@
 import $ from 'jquery';
 import axios from 'axios';
+import '../../it-spa.scss'
+import {cartSummary} from '../treatments/treatments'
 
 
 
@@ -11,26 +13,32 @@ let shoppingCart = [
 ];
 
 export const addToShoppingCartWidget = (itemId) => {
-  const button= $(`<button type="button" class="btn btn-success">+</button>`)
+  const button= $(`<button type="button" class="btn btn-success addbutton" id="liveToastBtn">Do koszyka</button>`)
     .on('click', ()=>{
       const item=shoppingCart.find((i)=>i.itemId==itemId)
       if  (item)  {
         item.quantity++;
+        cartSummary.show();
       }
       else  {
         shoppingCart.push({ itemId, quantity: 1 })
+        cartSummary.show();
+
       }
     })
   return button
 }
+
+
+
 export const shoppingCartView = () => {
   const shoppingCartContent = (table,treatments) => {
       const rows= shoppingCart.map((item)=>$(`
-      <tr data-id="${item.itemId}">
-      <td>${treatments.filter(treatment => treatment.id == item.itemId)[0].name}</td>
-      <td><input value="${item.quantity}" type="number" min="0"></td>
-      <td>${treatments.filter(treatment => treatment.id == item.itemId)[0].price*item.quantity}</td>
-      <td><button type="button" class="btn btn-outline-danger"> <i class="bi bi-trash"></i> Usuń Zabieg </button>
+      <tr class="cartsinglecontainer" data-id="${item.itemId}">
+      <td class="single-treatment-name">${treatments.filter(treatment => treatment.id == item.itemId)[0].name}</td>
+      <td><input class="numberinput" value="${item.quantity}" type="number" min="0"></td>
+      <td class="numberinput">${treatments.filter(treatment => treatment.id == item.itemId)[0].price*item.quantity}</td>
+      <td><button type="button" class="btn btn-outline-danger bi bi-trash trashbtn"></button>
       </tr>`))
       
     const summary=$(`
@@ -41,6 +49,7 @@ export const shoppingCartView = () => {
       <th></th>
     </tr>
 `)
+
     table.empty().append(rows).append(summary)
     table.find('input').on('change', (event)=>{
       const itemId=$(event.target).parent().parent().data("id")
@@ -58,7 +67,7 @@ export const shoppingCartView = () => {
     })
   };
 
-   const table= $('<table></table>')
+   const table= $('<table class="cartcontainer"></table>')
    axios.get(`http://localhost:3000/treatments`)
    .then(response => response.data)
    .then(treatments => {

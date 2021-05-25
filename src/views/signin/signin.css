@@ -1,0 +1,48 @@
+.form {
+    display: block;
+    margin: auto;
+    width: 40%;
+    padding-top: 2rem;
+    
+    
+    
+}
+
+.regForm {
+    display: block;
+    margin: auto;
+    width: 40%;
+    padding-top: 2rem;
+}
+
+.form-group {
+    display: block;
+    margin: auto;
+    width: 40%;
+    padding-top: 2rem;
+    
+}
+
+
+.btn-info {
+    margin: 0;
+    margin-top: 5%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #7cbe5e !important;
+    
+    
+
+}
+
+h2 {
+    text-align: center;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+}
+
+p {
+    text-align: center;
+}
+
