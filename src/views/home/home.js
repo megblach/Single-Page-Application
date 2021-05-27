@@ -10,14 +10,13 @@ export const home = () => {
     const fragment = $( document.createDocumentFragment() );
 
     const memberPartial = '<div class="member"> \
-                <h1>Projekt Spa</h1> \
-                <h2>Pokoje</h2> \
-                <h1 class="is-hidden">Relaks</h1> \
-                <h2 class="is-hidden">Zabiegi Spa</h2> \
+                <h1>Witamy w</h1> \
+                <h2>IT SPA</h2> \
+                <h1 class="is-hidden">Znajdziesz u nas</h1> \
+                <h2 class="is-hidden">Swoje miejsce na relaks</h2> \
             </div>';
 
     const elements = {
-        h2: '<h2>Home 2</h2>',
         section1: `<section class= "hotel">  \
                 ${image1} \
                 ${image2} \

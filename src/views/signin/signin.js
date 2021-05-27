@@ -1,6 +1,10 @@
 import $ from 'jquery';
 import { loggedUserComponent, logOutButton } from '../../navigation/navbar'
+import './signin.css'
+import { callback } from '../../navigation/navbar'
 
+const registerLink = $(`<div class="registerlink">Nie masz konta? Zarejestruj Się</div>`)
+registerLink.on("click", callback("signup"));
 
 
 
@@ -50,7 +54,7 @@ myForm.find("button").on("click", displayLogin)
 
 export const signin = () => {
     const fragment = $( document.createDocumentFragment() );
-    const h2 = $('<h2>Zaloguj Się do konta IT SPA</h2>');
+    const h2 = $('<h2>Zaloguj się do konta IT SPA</h2>');
     
 myForm.find("button").on("click", (event) => {
     
@@ -75,6 +79,7 @@ myForm.find("button").on("click", (event) => {
             loginMessages.login.successful.show();
             loginMessages.login.passwordIncorrect.hide();
             loginMessages.login.noUser.hide();
+            registerLink.hide();
             
 
             h2.hide();
@@ -101,7 +106,7 @@ myForm.find("button").on("click", (event) => {
 
 });
 
-    fragment.append(h2, myForm, messages)
+    fragment.append(h2, myForm, registerLink, messages)
 
     return fragment;
 };

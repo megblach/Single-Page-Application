@@ -119,6 +119,13 @@
       "area": "całe ciało",
       "time": 45,
       "price": 120
+    },
+    {
+      "id": 8,
+      "name": "Format dysku C",
+      "area": "open bar",
+      "time": "do utraty sił",
+      "price": 200
     }
   ]
 }

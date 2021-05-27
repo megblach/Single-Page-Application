@@ -1,5 +1,6 @@
 import 'regenerator-runtime/runtime';
 import $ from 'jquery';
+import '../signin/signin.css'
 
 
 export const signup = () => {
