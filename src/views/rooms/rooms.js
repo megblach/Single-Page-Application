@@ -1,6 +1,6 @@
 import $ from "jquery";
 import axios from "axios";
-import { addToShoppingCartWidget } from "../booking/booking";
+import { addRoomToShoppingCartWidget } from "../booking/booking";
 
 export const rooms = () => {
   const fragment = $(document.createDocumentFragment());
@@ -44,7 +44,7 @@ export const rooms = () => {
                 `);
 
         article.prepend(h4); // DOCZEPIAMY `h4` SPOWROTEM DO `article`
-        article.append(addToShoppingCartWidget(id, "room"));
+        article.append(addRoomToShoppingCartWidget(id));
 
         return article;
       });

@@ -26,6 +26,51 @@ export const addToShoppingCartWidget = (itemId, itemType) => {
   return button;
 };
 
+export const addRoomToShoppingCartWidget = (itemId) => {
+  const itemType = 'room' 
+  const button = $(
+    `<button type="button" class="btn btn-success addbutton" id="liveToastBtn">Do koszyka</button>`
+  ).on("click", () => {
+    const item = shoppingCart.find(
+      (i) => i.itemId == itemId && i.itemType == itemType
+    );
+    if (item) {
+      item.quantity++;
+      cartSummary.show();
+    } else {
+      shoppingCart.push({ itemId, itemType, quantity: 1 });
+      cartSummary.show();
+    }
+  });
+  const dateFrom = $(
+    `<input type="date" />`
+  )
+  dateFrom.on("change", (event) => {
+    const value = new Date(event.target.value)
+    console.log(value)
+    const currentDate = new Date()
+    if (value < currentDate) {
+      alert("Data przyjazdu nie moze byc w przeszlosci")
+      event.target.value=null
+    }
+  })
+  const dateTo = $(
+    `<input type="date" />`
+  )
+  dateTo.on("change", (event) => {
+    const value = new Date(event.target.value)
+    console.log(value)
+    const fromDate = new Date(dateFrom.val())
+    const limitDate = new Date(fromDate.getFullYear()+1, fromDate.getMonth(), fromDate.getDate())
+    if (value > limitDate) {
+      alert("Rezerwacja nie moze byc dluzsza niz rok")
+      event.target.value=null
+    } 
+  })
+
+  return $(`<div></div>`).append(dateFrom).append(dateTo).append(button)
+};
+
 const getItem = ({ itemId, itemType }, treatments, rooms) => {
   if (itemType == "treatment")
     return treatments.filter((treatment) => treatment.id == itemId)[0];
