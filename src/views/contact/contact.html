@@ -1,33 +1,34 @@
-<link rel="stylesheet" href="/src/views/contact/contact.css" />
+<link rel="stylesheet" href='../signin/signin.css' />
 <main>
-    <h1>Kontakt</h1>
     <div class="wrapper">
-        <h2>Napisz do nas</h2>
+        <h2>Skontaktuj się z nami:</h2>
         <div id="error_message"></div>
+        <div class="form-group">
         <form id="myform">
             <div class="input_field">
-                <input type="text" placeholder="Imię" id="name" />
-            </div>
+                <input type="text" class="form-control" placeholder="Imię" id="name" />
+            </div> <br/>
             <div class="input_field">
-                <input type="text" placeholder="Temat" id="subject" />
-            </div>
+                <input type="text"  class="form-control" placeholder="Temat" id="subject" />
+            </div><br/>
             <div class="input_field">
-                <input type="text" placeholder="Numer telefonu" id="phone" />
-            </div>
+                <input type="text"  class="form-control" placeholder="Numer telefonu" id="phone" />
+            </div><br/>
             <div class="input_field">
-                <input type="text" placeholder="Email" id="email" />
-            </div>
+                <input type="text"  class="form-control" placeholder="Email" id="email" />
+            </div><br/>
             <div class="input_field">
-                <textarea placeholder="Wiadomość" id="message"></textarea>
-            </div>
+                <textarea  class="form-control messagebox" placeholder="Wiadomość" id="message"></textarea>
+            </div><br/>
             <div class="btn">
-                <input type="submit" />
+                <button type="submit" class="btn btn-info">Prześlij</button>
             </div>
         </form>
+        </div>
     </div>
 </main>
 <aside>
-    <h3>Dane kontaktowe działu Obsługi Klienta</h3>
+    <h3>Dział obsługi klienta IT SPA</h3>
     <p>
         Numer telefonu: 22 055 13 12
         <br />
@@ -38,12 +39,10 @@
     <p>Znajdziesz nas tutaj:</p>
     <div class="wrapper">
         <div class="button">
-            <div class="icon"><i class="fab fa-facebook-f"></i></div>
-            <span>Facebook</span>
+            <div class="icon"><i class="bi bi-facebook"></i></div>
         </div>
         <div class="button">
-            <div class="icon"><i class="fab fa-instagram"></i></div>
-            <span>Instagram</span>
+            <div class="icon"><i class="bi bi-instagram"></i></div>
         </div>
     </div>
 </aside>

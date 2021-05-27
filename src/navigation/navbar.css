@@ -1,0 +1,32 @@
+.component div:last-child {
+    margin-left: auto;
+    display: inline-flex;
+
+}
+
+.loggedComponent {
+    display: flex !important;
+    flex-wrap: wrap;
+}
+
+
+.logOutButton {
+    margin-left: 20px;
+    height: 2rem;
+    align-items: center;
+}
+
+.logged {
+    color: white !important;
+}
+
+.navbar-custom {
+    background-color: #92817A !important;
+}
+
+
+.navbar-brand {
+    color: white;
+    font-weight: 600;
+}
+

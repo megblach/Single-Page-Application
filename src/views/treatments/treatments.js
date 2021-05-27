@@ -2,11 +2,25 @@ import $ from 'jquery';
 import axios from 'axios';
 import {addToShoppingCartWidget} from '../booking/booking';
 
+
+export const cartSummary = $(`<div class="alert alert-success fade show" role="alert">
+<i class="bi bi-cart-check"/> Dodano do koszyka!
+</div>`)
+
+cartSummary.on("click", () => {
+    cartSummary.hide();
+})
+
+
+cartSummary.hide();
+
 export const treatments = () => {
     const fragment = $(document.createDocumentFragment());
-    const h2 = $('<h2>Treatments</h2>');
+    const h2 = $('<h2>Zabiegi w IT SPA</h2>');
+
+
     const section = $(`
-        <section>
+        <section class="treatments-container">
             Loading...
         </section>
     `);
@@ -19,7 +33,7 @@ export const treatments = () => {
             const articles = treatments.map(treatment => {
                 const {id, name, area, time, price} = treatment;
 
-                const h4 = $(`<h4>${name}</h4>`);
+                const h4 = $(`<h4 class="treatment-name">${name}</h4>`);
 
                 h4.on('click', event => {
                     event.preventDefault();
@@ -35,8 +49,8 @@ export const treatments = () => {
                 });
                 
                 const article = $(`
-                    <article>
-                        <p><strong>Area</strong> ${area} | <strong>Time</strong> ${time}</p>
+                    <article class="article-treatment container-fluid">
+                        <p><strong>Część Ciała</strong> ${area} <br/> <strong>Czas Trwania</strong> ${time}</p>
                         <p><strong>${price.toFixed(2)} zł</strong></p>
                     </article>
                 `);
@@ -50,7 +64,7 @@ export const treatments = () => {
             section.empty().append(articles);
         });
 
-    fragment.append(h2, section);
+    fragment.append(cartSummary, h2, section );
 
     return fragment;
 };

@@ -1,16 +1,21 @@
 import $ from 'jquery';
-import { loggedUserComponent } from '../../common/header'
-import { navigation, callback } from '../../navigation/navigation'
+import { loggedUserComponent, logOutButton } from '../../navigation/navbar'
+import './signin.css'
+import { callback } from '../../navigation/navbar'
 
+const registerLink = $(`<div class="registerlink">Nie masz konta? Zarejestruj Się</div>`)
+registerLink.on("click", callback("signup"));
 
 
 
 const myForm = $(`
+<div class="form-group">
 <form class="form" id="myForm" autocomplete="off" type="submit">
-<input type="email" id="email" placeholder="Adres Email"required>
-<input type="password" id="password" placeholder="Hasło" required> 
+<input type="email" class="form-control" id="email" placeholder="Adres Email"required></br>
+<input type="password" class="form-control" id="password" placeholder="Hasło" required> </br>
 <button type="submit" class="btn btn-info">Zaloguj</button>
 </form>
+</div>
 `);
 
 const messages = $(`
@@ -49,7 +54,7 @@ myForm.find("button").on("click", displayLogin)
 
 export const signin = () => {
     const fragment = $( document.createDocumentFragment() );
-    const h2 = $('<h2>Zaloguj Się do konta IT SPA</h2>');
+    const h2 = $('<h2>Zaloguj się do konta IT SPA</h2>');
     
 myForm.find("button").on("click", (event) => {
     
@@ -74,14 +79,17 @@ myForm.find("button").on("click", (event) => {
             loginMessages.login.successful.show();
             loginMessages.login.passwordIncorrect.hide();
             loginMessages.login.noUser.hide();
+            registerLink.hide();
             
 
             h2.hide();
             myForm.hide();
-            {loggedUserComponent.show()};
+            {
+                loggedUserComponent.show()
+                logOutButton.show();
+            };
 
 
-             /// akcja do pomyślnego logowania
         } else if (passAuth === false && authSync === false) {
             loginMessages.login.passwordIncorrect.show();
             loginMessages.login.noUser.hide();
@@ -98,7 +106,7 @@ myForm.find("button").on("click", (event) => {
 
 });
 
-    fragment.append(h2, myForm, messages)
+    fragment.append(h2, myForm, registerLink, messages)
 
     return fragment;
 };

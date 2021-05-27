@@ -74,51 +74,58 @@
     {
       "id": 1,
       "name": "Masaż rozgrzanym monitorem",
-      "area": "back",
+      "area": "plecy",
       "time": 30,
       "price": 80
     },
     {
       "id": 2,
       "name": "Biczowanie kablem od myszy",
-      "area": "back",
+      "area": "plecy",
       "time": 20,
       "price": 70
     },
     {
       "id": 3,
       "name": "Peeling odłamkami płyty CD",
-      "area": "face",
+      "area": "twarz",
       "time": 15,
       "price": 50
     },
     {
       "id": 4,
       "name": "Pedicure woskiem z USB",
-      "area": "legs",
+      "area": "stopy",
       "time": 25,
       "price": 100
     },
     {
       "id": 5,
       "name": "Manicure analogowo-cyfrowy",
-      "area": "hands",
+      "area": "dłonie",
       "time": 45,
       "price": 150
     },
     {
       "id": 6,
       "name": "Kąpiel w gorącej kawie",
-      "area": "body",
+      "area": "całe ciało",
       "time": 60,
       "price": 200
     },
     {
       "id": 7,
       "name": "Depilacja dyskiem twardym",
-      "area": "body",
+      "area": "całe ciało",
       "time": 45,
       "price": 120
+    },
+    {
+      "id": 8,
+      "name": "Format dysku C",
+      "area": "open bar",
+      "time": "do utraty sił",
+      "price": 200
     }
   ]
 }

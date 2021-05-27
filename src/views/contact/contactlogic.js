@@ -22,7 +22,7 @@ const validate = (ev) => {
     if (subject.length < 10) {
         text.push("Proszę wpisać temat wiadomości");
     }
-    if (isNaN(phone) || phone.length != 10) {
+    if (isNaN(phone) || phone.length != 9) {
         text.push("Proszę wpisać poprawny numer telefonu");
     }
     if (email.indexOf("@") === -1 || email.length < 6) {
@@ -38,7 +38,7 @@ const validate = (ev) => {
     if (text !== null) {
         error_message.innerHTML = text.join("<br/>");
         return false;
-    }
-
+    } else {
     alert("Formularz wypełniony poprawnie!");
+    }
 };

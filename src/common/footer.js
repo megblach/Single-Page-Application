@@ -5,10 +5,11 @@ export const footer = () => {
     const year = date.getFullYear();
 
     return $(`
-
+  <div class="fixed-bottom">
   <footer>
-  <small>Wszelkie prawa zastrzezone &copy; ${year} </small>
+  <small>Wszelkie prawa zastrzeżone ALK &copy; ${year} </small>
   </footer>
+  </div>
     
     `);
 };
