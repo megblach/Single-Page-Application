@@ -65,7 +65,9 @@ export const addRoomToShoppingCartWidget = (itemId) => {
     if (value > limitDate) {
       alert("Rezerwacja nie moze byc dluzsza niz rok")
       event.target.value=null
-    } 
+    } else if (value < fromDate) {
+      alert("Wybierz datę powrotu po dacie wyjazdu")
+    }
   })
 
   return $(`<div></div>`).append(dateFrom).append(dateTo).append(button)
