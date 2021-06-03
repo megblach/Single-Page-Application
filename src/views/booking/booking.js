@@ -1,12 +1,15 @@
 import $ from "jquery";
 import axios from "axios";
 import "../../it-spa.scss";
-import { cartSummary } from "../treatments/treatments";
+import { cartSummary, hideButton } from "../treatments/treatments";
 
+import {overYearMessage, notPastMessage, backAfterMessage} from '../rooms/rooms'
 let shoppingCart = [
   //{ itemId: 2, itemType: 'treatment', quantity: 1},
   //{ itemId: 4,itemType: 'treatment', quantity: 2},
 ];
+
+hideButton();
 
 export const addToShoppingCartWidget = (itemId, itemType) => {
   const button = $(
@@ -37,40 +40,50 @@ export const addRoomToShoppingCartWidget = (itemId) => {
     if (item) {
       item.quantity++;
       cartSummary.show();
+
     } else {
       shoppingCart.push({ itemId, itemType, quantity: 1 });
       cartSummary.show();
     }
   });
+  
   const dateFrom = $(
-    `<input type="date" />`
+    `<input type="date" required/>`
   )
   dateFrom.on("change", (event) => {
     const value = new Date(event.target.value)
     console.log(value)
     const currentDate = new Date()
     if (value < currentDate) {
-      alert("Data przyjazdu nie moze byc w przeszlosci")
+      
+      notPastMessage.show();
+      overYearMessage.hide();
+      backAfterMessage.hide();
       event.target.value=null
-    }
+    } 
   })
   const dateTo = $(
-    `<input type="date" />`
+    `<input type="date" required/>`
   )
   dateTo.on("change", (event) => {
     const value = new Date(event.target.value)
-    console.log(value)
     const fromDate = new Date(dateFrom.val())
     const limitDate = new Date(fromDate.getFullYear()+1, fromDate.getMonth(), fromDate.getDate())
     if (value > limitDate) {
-      alert("Rezerwacja nie moze byc dluzsza niz rok")
+      overYearMessage.show();
+      backAfterMessage.hide();
+      notPastMessage.hide();
       event.target.value=null
+
     } else if (value < fromDate) {
-      alert("Wybierz datę powrotu po dacie wyjazdu")
-    }
+      
+      backAfterMessage.show();
+      overYearMessage.hide();
+      notPastMessage.hide();
+    } 
   })
 
-  return $(`<div></div>`).append(dateFrom).append(dateTo).append(button)
+  return $(`<form></form>`).append(dateFrom).append(dateTo).append(button)
 };
 
 const getItem = ({ itemId, itemType }, treatments, rooms) => {
@@ -78,8 +91,10 @@ const getItem = ({ itemId, itemType }, treatments, rooms) => {
     return treatments.filter((treatment) => treatment.id == itemId)[0];
   if (itemType == "room") return rooms.filter((room) => room.id == itemId)[0];
 };
+
+
+
 export const shoppingCartView = () => {
-  //return "Helloworld";
   const shoppingCartContent = (table, treatments, rooms) => {
     const rows = shoppingCart.map((item) =>
       $(`

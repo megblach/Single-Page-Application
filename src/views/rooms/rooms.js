@@ -1,6 +1,20 @@
 import $ from "jquery";
 import axios from "axios";
 import { addRoomToShoppingCartWidget } from "../booking/booking";
+import { cartSummary, hideButton } from '../treatments/treatments'
+
+
+export const overYearMessage = $(`<div class="alert alert-danger"><i class="bi bi-exclamation-triangle"></i> Data pobytu nie może być dłuższa niż rok</div>`);
+export const notPastMessage = $(`<div class="alert alert-danger"><i class="bi bi-exclamation-triangle"></i> Wybierz datę w przyszłości</div>`);
+export const backAfterMessage = $(`<div class="alert alert-danger"><i class="bi bi-exclamation-triangle"></i> Wybierz datę powrotu po dacie wyjazdu</div>`);
+
+
+overYearMessage.hide();
+notPastMessage.hide();
+backAfterMessage.hide();
+cartSummary.hide();
+
+hideButton();
 
 export const rooms = () => {
   const fragment = $(document.createDocumentFragment());
@@ -36,15 +50,16 @@ export const rooms = () => {
 
         const article = $(`
                     <div class="article-room container-fluid">
+                    <p><strong>Łóżka</strong> ${beds} | <strong>Goście</strong> ${guests}</p>
                     <article>
-                        <p><strong>Beds</strong> ${beds} | <strong>Guests</strong> ${guests}</p>
-                        <p><strong>${price.toFixed(2)} zł</strong></p>
+                        <p><strong>${price.toFixed(2)} zł / doba</strong></p>
                     </article>
                     </div>
                 `);
 
         article.prepend(h4); // DOCZEPIAMY `h4` SPOWROTEM DO `article`
         article.append(addRoomToShoppingCartWidget(id));
+        
 
         return article;
       });
@@ -52,7 +67,7 @@ export const rooms = () => {
       section.empty().append(articles);
     });
 
-  fragment.append(h2, section);
+  fragment.append(h2, overYearMessage, notPastMessage, backAfterMessage, cartSummary, section);
 
   return fragment;
 };
