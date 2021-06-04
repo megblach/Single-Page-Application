@@ -3,16 +3,24 @@ import axios from 'axios';
 import {addToShoppingCartWidget} from '../booking/booking';
 
 
-export const cartSummary = $(`<div class="alert alert-success fade show" role="alert">
-<i class="bi bi-cart-check"/> Dodano do koszyka!
-</div>`)
+export const cartSummary = $(`
 
-cartSummary.on("click", () => {
-    cartSummary.hide();
-})
+<div class="alert alert-success fade show" id="summary" role="alert">
+<i class="bi bi-cart-check"/> 
+Dodano do koszyka! 
+<button type="button" class="close" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+</div>`)
 
 
 cartSummary.hide();
+
+export const hideButton = () => {
+    cartSummary.find("button").on("click", () => {
+    cartSummary.hide();
+    })
+};
+
+
 
 export const treatments = () => {
     const fragment = $(document.createDocumentFragment());
@@ -64,7 +72,7 @@ export const treatments = () => {
             section.empty().append(articles);
         });
 
-    fragment.append(cartSummary, h2, section );
+    fragment.append(h2, cartSummary, section);
 
     return fragment;
 };

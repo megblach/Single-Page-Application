@@ -46,9 +46,8 @@ footer {
 }
 
 .article-treatment:hover {
-    background-color: rgba(0,0,0, 0.1) !important;
+    background-color: rgba(0,0,0, 0.03) !important;
     transition: 0.3s;
-    color: white;
 }
 
 .treatments-container {
@@ -84,9 +83,8 @@ footer {
 
 .article-room:hover {
     cursor: pointer;
-    background-color: rgba(0,0,0, 0.1);
+    background-color: rgba(0,0,0, 0.03);
     transition: 0.3s;
-    color: white;
     
 
 }
@@ -135,6 +133,8 @@ aside {
 .registerlink:hover {
     color: white;
     cursor: pointer;
+    transition: 0.3s;
+
 }
 .cartcontainer {
     width: 60%;
@@ -174,9 +174,8 @@ aside {
 }
 
 .cartsinglecontainer:hover {
-    background-color: rgba(0,0,0, 0.1);
+    background-color: rgba(0,0,0, 0.02);
     transition: 0.3s;
-    color: white;
 }
 
 .alert {
@@ -188,5 +187,25 @@ aside {
     text-align: center;
 }
 
+.relax {
+    // display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+}
 
+.paragraph {
+    font-size: 1.2rem;
+    padding-top: 2rem;
+    margin: 1rem 6rem 1rem 6rem;
+    text-align: justify;
+}
 
+.card {
+    margin: 0 auto; 
+    float: none;
+    width: 50%;
+    margin-top: 3rem;
+    text-align: justify;
+}
