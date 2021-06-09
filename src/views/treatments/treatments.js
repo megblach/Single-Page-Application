@@ -7,20 +7,12 @@ export const cartSummary = $(`
 
 <div class="alert alert-success fade show" id="summary" role="alert">
 <i class="bi bi-cart-check"/> 
-Dodano do koszyka! 
-<button type="button" class="close" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+Dodano do koszyka! <strong>Zamknij</strong>
 </div>`)
 
-
-cartSummary.hide();
-
-export const hideButton = () => {
-    cartSummary.find("button").on("click", () => {
+cartSummary.on('click', () => {
     cartSummary.hide();
-    })
-};
-
-
+})
 
 export const treatments = () => {
     const fragment = $(document.createDocumentFragment());
