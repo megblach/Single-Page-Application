@@ -1,7 +1,7 @@
 import $ from "jquery";
 import axios from "axios";
 import "../../it-spa.scss";
-import { cartSummary, hideButton } from "../treatments/treatments";
+import { cartSummary } from "../treatments/treatments";
 
 import {overYearMessage, notPastMessage, backAfterMessage} from '../rooms/rooms'
 let shoppingCart = [
@@ -9,7 +9,7 @@ let shoppingCart = [
   //{ itemId: 4,itemType: 'treatment', quantity: 2},
 ];
 
-hideButton();
+
 
 export const addToShoppingCartWidget = (itemId, itemType) => {
   const button = $(
@@ -21,9 +21,13 @@ export const addToShoppingCartWidget = (itemId, itemType) => {
     if (item) {
       item.quantity++;
       cartSummary.show();
+
+
     } else {
       shoppingCart.push({ itemId, itemType, quantity: 1 });
       cartSummary.show();
+
+
     }
   });
   return button;
@@ -41,15 +45,21 @@ export const addRoomToShoppingCartWidget = (itemId) => {
       item.quantity++;
       cartSummary.show();
 
+
     } else {
       shoppingCart.push({ itemId, itemType, quantity: 1 });
       cartSummary.show();
+
+
+
     }
   });
   
   const dateFrom = $(
     `<input type="date" required/>`
   )
+
+  
   dateFrom.on("change", (event) => {
     const value = new Date(event.target.value)
     console.log(value)

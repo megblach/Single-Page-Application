@@ -1,20 +1,22 @@
 import $ from "jquery";
 import axios from "axios";
 import { addRoomToShoppingCartWidget } from "../booking/booking";
-import { cartSummary, hideButton } from '../treatments/treatments'
+import { cartSummary } from '../treatments/treatments'
 
 
 export const overYearMessage = $(`<div class="alert alert-danger"><i class="bi bi-exclamation-triangle"></i> Data pobytu nie może być dłuższa niż rok</div>`);
 export const notPastMessage = $(`<div class="alert alert-danger"><i class="bi bi-exclamation-triangle"></i> Wybierz datę w przyszłości</div>`);
 export const backAfterMessage = $(`<div class="alert alert-danger"><i class="bi bi-exclamation-triangle"></i> Wybierz datę powrotu po dacie wyjazdu</div>`);
 
+cartSummary.on('click', () => {
+  cartSummary.hide();
+})
 
 overYearMessage.hide();
 notPastMessage.hide();
 backAfterMessage.hide();
 cartSummary.hide();
 
-hideButton();
 
 export const rooms = () => {
   const fragment = $(document.createDocumentFragment());
